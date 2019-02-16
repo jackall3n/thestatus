@@ -31,7 +31,9 @@ app.get('/services', (req, res) => {
 
         statuses.forEach((status, index) => {
             const service = services[index];
-            response[service] = status;
+            response[service] = {
+                status
+            };
         });
 
         res.send(response);
