@@ -9,14 +9,27 @@
     <div id="root"></div>
 
     <script>
-        const xhr = new XMLHttpRequest();
+        const root = document.getElementById('root');
 
-        xhr.onreadystatechange = function() {
-            console.log(this, xhr);
-        };
+        function get(url, callback){
+            const xhr = new XMLHttpRequest();
 
-        xhr.open('GET', '/services');
-        xhr.send();
+            xhr.onreadystatechange = function() {
+                callback(this.responseText);
+            };
+
+            xhr.open('GET', url);
+            xhr.send();
+        }
+
+        get('/services', response => {
+            root.innerText = root.innerText + response + '\n';
+        });
+
+        get('/ip', response => {
+            root.innerText = root.innerText + response + '\n';
+        });
+
     </script>
 </body>
 </html>
