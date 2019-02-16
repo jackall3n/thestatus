@@ -2,7 +2,7 @@
   "name": "thestatus",
   "version": "1.0.0",
   "scripts": {
-    "start": "node src/server"
+    "start": "node server"
   },
   "dependencies": {
     "axios": "^0.18.0",
