@@ -4,7 +4,7 @@ const express = require('express');
 const axios = require('axios');
 
 // Constants
-const PORT = 1234;
+const PORT = 80;
 const HOST = '0.0.0.0';
 
 // App
