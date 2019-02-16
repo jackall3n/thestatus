@@ -6,15 +6,20 @@
 </head>
 <body>
 
-    <div id="root"></div>
+    <div id="root">
+        <div id="services"></div>
+        <div id="ip"></div>
+    </div>
 
     <script>
         const root = document.getElementById('root');
+        const services = document.getElementById('services');
+        const ip = document.getElementById('ip');
 
         function get(url, callback){
             const xhr = new XMLHttpRequest();
 
-            xhr.onreadystatechange = function() {
+            xhr.on = function() {
                 callback(this.responseText);
             };
 
@@ -23,11 +28,11 @@
         }
 
         get('/services', response => {
-            root.innerText = root.innerText + response + '\n';
+            services.innerText = response;
         });
 
         get('/ip', response => {
-            root.innerText = root.innerText + response + '\n';
+            ip.innerText = response;
         });
 
     </script>
