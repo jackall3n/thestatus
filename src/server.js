@@ -25,13 +25,9 @@ app.get('/services', (req, res) => {
     const services = ['docker', 'couchpotato', 'deluged', 'deluge-web', 'sickrage'];
 
     exec(`systemctl is-active ${services.join(' ')}`, (error, stdout, stderr) => {
-        //if (error) {
-        //    return res.send(error);
-        //}
-
         const response = {};
 
-        const statuses = stdout.split('\n');
+        const statuses = stdout.split('\n').filter(s => s);
 
         statuses.forEach((status, index) => {
             const service = services[index];
