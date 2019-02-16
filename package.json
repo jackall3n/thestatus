@@ -1,0 +1,14 @@
+{
+  "name": "thestatus",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/server"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/jackall3n/thestatus.git",
+  "author": "Jack Allen <jackallensemail+bit@googlemail.com>",
+  "license": "MIT"
+}
