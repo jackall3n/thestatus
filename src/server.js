@@ -23,13 +23,11 @@ app.get('/ip', (req, res) => {
 });
 
 app.get('services', (req, res) => {
-    async function ls() {
-        const { stdout, stderr } = await exec('ls');
+    exec('ls').then((error, stdout, stderr) => {
         console.log('stdout:', stdout);
         console.log('stderr:', stderr);
-    }
-    ls();
-})
+    });
+});
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
