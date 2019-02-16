@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script>
+        const xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function() {
+            console.log(this, xhr);
+        };
+
+        xhr.open('GET', '/services');
+        xhr.send();
+    </script>
+</body>
+</html>
