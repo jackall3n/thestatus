@@ -19,7 +19,7 @@
         function get(url, callback){
             const xhr = new XMLHttpRequest();
 
-            xhr.on = function() {
+            xhr.onreadystatechange = function() {
                 callback(this.responseText);
             };
 
