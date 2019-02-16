@@ -1,7 +1,6 @@
 'use strict';
 
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+const exec = require('child_process').exec;
 
 const express = require('express');
 const axios = require('axios');
@@ -23,7 +22,7 @@ app.get('/ip', (req, res) => {
 });
 
 app.get('services', (req, res) => {
-    exec('ls').then((error, stdout, stderr) => {
+    exec('ls', (error, stdout, stderr) => {
         console.log('stdout:', stdout);
         console.log('stderr:', stderr);
     });
