@@ -21,10 +21,12 @@ app.get('/ip', (req, res) => {
     })
 });
 
-app.get('services', (req, res) => {
+app.get('/services', (req, res) => {
     exec('ls', (error, stdout, stderr) => {
-        console.log('stdout:', stdout);
-        console.log('stderr:', stderr);
+        res.send({
+            stdout,
+            stderr
+        });
     });
 });
 
