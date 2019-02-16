@@ -11,8 +11,11 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
+
+app.use(express.staticProvider(__dirname + '/public'));
+
 app.get('/', (req, res) => {
-    res.send('Hello world\n');
+    res.render('index.html');
 });
 
 app.get('/ip', (req, res) => {
