@@ -4,6 +4,7 @@ const exec = require('child_process').exec;
 
 const express = require('express');
 const axios = require('axios');
+const fs = require('fs');
 
 // Constants
 const PORT = 80;
@@ -12,10 +13,10 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 
-app.use(express.staticProvider(__dirname + '/public'));
-
 app.get('/', (req, res) => {
-    res.render('index.html');
+    fs.readFile(__dirname + '/public/index.html', 'utf8', (err, text) => {
+        res.send(text);
+    });
 });
 
 app.get('/ip', (req, res) => {
