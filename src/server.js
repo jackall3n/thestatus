@@ -22,11 +22,23 @@ app.get('/ip', (req, res) => {
 });
 
 app.get('/services', (req, res) => {
-    exec('ls', (error, stdout, stderr) => {
-        res.send({
-            stdout,
-            stderr
+    const services = ['docker', 'couchpotato', 'deluged', 'deluge-web', 'sickrage'];
+
+    exec(`systemctl is-active ${services.join(' ')}`, (error, stdout, stderr) => {
+        if (error) {
+            return res.send(error);
+        }
+
+        const response = {};
+
+        const statuses = stdout.split('\n');
+
+        statuses.forEach((status, index) => {
+            const service = services[index];
+            response[service] = status;
         });
+
+        res.send(response);
     });
 });
 
