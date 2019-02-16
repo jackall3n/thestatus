@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const axios = require('axios');
 
 // Constants
 const PORT = 1234;
@@ -10,6 +11,12 @@ const HOST = '0.0.0.0';
 const app = express();
 app.get('/', (req, res) => {
     res.send('Hello world\n');
+});
+
+app.get('/ip', (req, res) => {
+    axios.get('https://ipinfo.io/json').then(response => {
+        res.send(response.data);
+    })
 });
 
 app.listen(PORT, HOST);
