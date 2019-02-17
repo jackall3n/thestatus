@@ -4,10 +4,10 @@ After=network.target
 
 [Service]
 WorkingDirectory=/opt/thestatus/
-ExecStart=sudo /usr/bin/npm start
+ExecStart=/usr/bin/npm start
 Restart=on-failure
 User=pi
-Environment=PORT=80
+Environment=PORT=8181
 
 [Install]
 WantedBy=multi-user.target
